@@ -16,30 +16,35 @@ ActiveRecord::Schema.define(version: 2020_03_18_231626) do
   enable_extension "plpgsql"
 
   create_table "companies", force: :cascade do |t|
-    t.string "type", null: false
     t.string "name", null: false
+    t.string "email", null: false
+    t.string "password_digest", null: false
+    t.string "session_token", null: false
     t.string "website_url"
+    t.string "description", null: false
+    t.string "mission_statement"
+    t.string "work_field"
+    t.string "city"
+    t.string "ein"
     t.index ["name"], name: "index_companies_on_name"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "workers", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest", null: false
     t.string "session_token", null: false
     t.string "description", null: false
-    t.string "type", null: false
-    t.index ["email"], name: "index_users_on_email"
-    t.index ["password_digest"], name: "index_users_on_password_digest"
-    t.index ["type"], name: "index_users_on_type"
-  end
-
-  create_table "workers", force: :cascade do |t|
-    t.string "type", null: false
     t.string "first_name", null: false
     t.string "last_name", null: false
-    t.string "portfolio_url"
-    t.string "work_field", null: false
-    t.index ["work_field"], name: "index_workers_on_work_field"
+    t.string "website_url"
+    t.string "occupation", null: false
+    t.string "fields_of_interest"
+    t.string "city", null: false
+    t.index ["email"], name: "index_workers_on_email"
+    t.index ["first_name"], name: "index_workers_on_first_name"
+    t.index ["last_name"], name: "index_workers_on_last_name"
+    t.index ["password_digest"], name: "index_workers_on_password_digest"
+    t.index ["session_token"], name: "index_workers_on_session_token"
   end
 
 end
