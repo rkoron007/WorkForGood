@@ -1,11 +1,12 @@
 class Api::WorkersController < ApplicationController
-
+  skip_before_action :verify_authenticity_token
   def create
     @worker = Worker.new(worker_params)
     if @worker.save
       sign_in!(@worker)
       render json: @worker
     else
+      # debugger
       render json: @worker.errors.full_messages, status: 401
     end
   end
@@ -32,8 +33,8 @@ class Api::WorkersController < ApplicationController
   private
   
   def worker_params
-    params.require(:worker).permit(:password,
-                                   :email,
+    params.require(:worker).permit(:email,
+                                   :password,
                                    :description,
                                    :first_name,
                                    :last_name,
