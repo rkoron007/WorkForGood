@@ -13,10 +13,10 @@ class Api::SessionsController < ApplicationController
       params[:worker][:password]
     )
     else 
-    @user = Company.find_by_credentials(
-      params[:company][:email],
-      params[:company][:password]
-    )
+      @user = Company.find_by_credentials(
+        params[:company][:email],
+        params[:company][:password]
+      )
     end
 
     if @user
