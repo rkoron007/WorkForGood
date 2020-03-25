@@ -10,7 +10,7 @@ export const signUpWorker = worker => {
 export const signInWorker = worker => {
   makePostRequest("/api/session", { worker })
     .then(response => handleResponseJSON(response))
-    .then(data => console.log(data));
+    .then(data => data);
 };
 
 export const signUpCompany = company => {

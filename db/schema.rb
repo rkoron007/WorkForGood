@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_22_180248) do
+ActiveRecord::Schema.define(version: 2020_03_18_231626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 2020_03_22_180248) do
     t.string "mission_statement"
     t.string "work_field"
     t.string "city"
-    t.string "ein"
-    t.index ["name"], name: "index_companies_on_name", unique: true
+    t.integer "ein"
+    t.index ["name"], name: "index_companies_on_name"
   end
 
   create_table "workers", force: :cascade do |t|
@@ -34,15 +34,15 @@ ActiveRecord::Schema.define(version: 2020_03_22_180248) do
     t.string "password_digest", null: false
     t.string "session_token", null: false
     t.string "description", null: false
-    t.string "first_name", null: false
+    t.string "name", null: false
     t.string "last_name", null: false
     t.string "website_url"
     t.string "occupation", null: false
     t.string "fields_of_interest"
     t.string "city", null: false
     t.index ["email"], name: "index_workers_on_email", unique: true
-    t.index ["first_name"], name: "index_workers_on_first_name"
     t.index ["last_name"], name: "index_workers_on_last_name"
+    t.index ["name"], name: "index_workers_on_name"
     t.index ["password_digest"], name: "index_workers_on_password_digest"
     t.index ["session_token"], name: "index_workers_on_session_token"
   end

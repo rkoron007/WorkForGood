@@ -10,7 +10,7 @@ class CreateCompanies < ActiveRecord::Migration[5.2]
       t.string :mission_statement
       t.string :work_field
       t.string :city
-      t.string :ein
+      t.integer :ein
     end
 
     add_index(:companies, :name)

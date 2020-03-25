@@ -36,7 +36,7 @@ class Api::WorkersController < ApplicationController
     params.require(:worker).permit(:email,
                                    :password,
                                    :description,
-                                   :first_name,
+                                   :name,
                                    :last_name,
                                    :occupation,
                                    :website_url,

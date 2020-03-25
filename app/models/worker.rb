@@ -1,5 +1,5 @@
 class Worker < ActiveRecord::Base
-  validates :description, :first_name, :last_name, :occupation, :city, presence: true
+  validates :description, :name, :last_name, :occupation, :city, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :password_digest, presence: true
   validates :session_token, :email, presence: true, uniqueness: true

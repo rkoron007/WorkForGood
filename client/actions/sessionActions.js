@@ -26,8 +26,11 @@ const logoutCurrentUser = () => ({
 
 export const signUpWorker = workerData => dispatch =>
   API.signUpWorker(workerData).then(
-    worker => dispatch(receiveWorker(worker)),
-    error => dispatch(receiveErrors(error))
+    worker => {
+      console.log(worker);
+      return dispatch(receiveWorker(worker));
+    }),
+    // error => dispatch(receiveErrors(error))
   );
 
 export const signUpCompany = companyData => dispatch =>
