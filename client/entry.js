@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./components/app";
 import configureStore from "./store/store";
 
-import { signInWorker, signUpWorker } from "./util/sessionApiUtil";
+import { signInWorker, signUpWorker } from "./actions/sessionActions";
 
 document.addEventListener("DOMContentLoaded", () => {
   const store = configureStore();

@@ -3,8 +3,8 @@ import { signOut } from "../../util/sessionApiUtil";
 import Greeting from "./greeting";
 
 const mapStateToProps = ({ session, entities }) => {
-  let user = entities[session.id];
-
+  let user = entities.workers[session.id];
+  debugger;
   return {
     user
   };

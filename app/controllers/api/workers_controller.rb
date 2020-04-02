@@ -6,7 +6,6 @@ class Api::WorkersController < ApplicationController
       sign_in!(@worker)
       render json: @worker
     else
-      # debugger
       render json: @worker.errors.full_messages, status: 401
     end
   end

@@ -28,9 +28,9 @@ export const signUpWorker = workerData => dispatch =>
   API.signUpWorker(workerData).then(
     worker => {
       console.log(worker);
-      return dispatch(receiveWorker(worker));
-    }),
-    // error => dispatch(receiveErrors(error))
+      dispatch(receiveWorker(worker));
+    },
+    error => dispatch(receiveErrors(error))
   );
 
 export const signUpCompany = companyData => dispatch =>
