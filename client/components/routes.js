@@ -1,11 +1,11 @@
 import React from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
-import GreetingsContainer from "./greeting/greetingContainer";
+import Greetings from "./worker/greeting/workerGreeting";
 
 const Routes = () => {
   return (
     <div>
-      <GreetingsContainer />
+      <Greetings />
       <h1>Hello!</h1>
     </div>
   );

@@ -2,7 +2,9 @@ const token = Rails.csrfToken();
 
 export const handleResponseJSON = response => {
   if (response.status >= 201) {
-    return response.text();
+    return response.json().then(message => {
+      throw new Error(message);
+    });
   }
   return response.json();
 };

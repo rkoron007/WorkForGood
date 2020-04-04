@@ -17,7 +17,7 @@ const receiveCompany = company => ({
 
 const receiveErrors = errors => ({
   type: RECEIVE_SESSION_ERRORS,
-  errors
+  errors: errors.message
 });
 
 const logoutCurrentUser = () => ({
@@ -39,11 +39,12 @@ export const signUpCompany = companyData => dispatch =>
     error => dispatch(receiveErrors(error))
   );
 
-export const signInWorker = worker => dispatch =>
-  API.signInWorker(worker).then(
+export const signInWorker = worker => dispatch => {
+  return API.signInWorker(worker).then(
     worker => dispatch(receiveWorker(worker)),
     error => dispatch(receiveErrors(error))
   );
+};
 
 export const signInCompany = company => dispatch =>
   API.signInCompany(company).then(
