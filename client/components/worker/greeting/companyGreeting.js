@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "../../../actions/sessionActions";
 import { Link } from "react-router-dom";
 
-export const Greeting = () => {
+export const CompanyGreeting = () => {
   const user = useSelector(
-    ({ session, entities }) => entities.workers[session.id]
+    ({ session, entities }) => entities.companies[session.id]
   );
   const dispatch = useDispatch();
 
@@ -27,4 +27,4 @@ export const Greeting = () => {
   }
 };
 
-export default Greeting;
+export default CompanyGreeting;

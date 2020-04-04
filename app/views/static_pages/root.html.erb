@@ -1,12 +1,20 @@
 <% if signed_in? %>
 
-<% end %>
+  <script type="text/javascript">
+  <% if current_user.has_attribute?(:last_name)  %>
+    <% show = "api/workers/worker.json.jbuilder" %>
+    let key = "worker";
+  <% else %>
+    <% show = "api/companies/company.json.jbuilder" %>
+    let key = "company";
+  <% end %>
 
-<%# <script type="text/javascript">
-    window.currentUser = <%= render(
-      "api/users/user.json.jbuilder",
+    window[key] = <%= render(
+      show,
       user: current_user
     ).html_safe %>
-<%# </script> %>
+  </script> 
+<% end %>
+
 
 <div id="root">React is broke :(</div>

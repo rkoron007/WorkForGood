@@ -8,14 +8,12 @@ export const signUpWorker = worker =>
 export const signInWorker = worker =>
   makePostRequest("/api/session", { worker })
     .then(response => handleResponseJSON(response))
-    .then(data => {
-      return data;
-    });
+    .then(data => data);
 
 export const signUpCompany = company =>
   makePostRequest("/api/companies", { company })
     .then(response => handleResponseJSON(response))
-    .then(data => console.log(data));
+    .then(data => data);
 
 export const signInCompany = company =>
   makePostRequest("/api/session", { company })
