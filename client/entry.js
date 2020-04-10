@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./components/app";
+import App from "./components/app.js";
 import configureStore from "./store/store";
 
 document.addEventListener("DOMContentLoaded", () => {
