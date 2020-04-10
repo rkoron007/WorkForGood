@@ -4,7 +4,7 @@ import { AuthRoute, ProtectedRoute } from "../util/routeUtil";
 import Greeting from "./session/greeting";
 import WorkerSignInContainer from "./session/workerSignInContainer";
 import WorkerSignUpContainer from "./session/workerSignUpContainer";
-import CompanySignInContainer from "./session/CompanySignInContainer";
+import CompanySignInContainer from "./session/companySignInContainer";
 import companySignUpContainer from "./session/companySignUpContainer";
 
 const Routes = () => {
