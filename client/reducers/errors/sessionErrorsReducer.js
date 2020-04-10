@@ -1,7 +1,7 @@
 import {
   RECEIVE_WORKER,
   RECEIVE_COMPANY,
-  RECEIVE_SESSION_ERRORS
+  RECEIVE_SESSION_ERRORS,
 } from "../../actions/sessionActions";
 
 const sessionReducer = (state = [], action) => {
@@ -13,7 +13,7 @@ const sessionReducer = (state = [], action) => {
     case RECEIVE_COMPANY:
       return [];
     case RECEIVE_SESSION_ERRORS:
-      return action.errors;
+      return action.errors.message.split(",");
     default:
       return state;
   }

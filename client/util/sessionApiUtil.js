@@ -1,23 +1,23 @@
 import { handleResponseJSON, makePostRequest, deleteRequest } from "./util";
 
-export const signUpWorker = worker =>
+export const signUpWorker = (worker) =>
   makePostRequest("/api/workers", { worker })
-    .then(response => handleResponseJSON(response))
-    .then(data => console.log(data));
+    .then((response) => handleResponseJSON(response))
+    .then((data) => data);
 
-export const signInWorker = worker =>
+export const signInWorker = (worker) =>
   makePostRequest("/api/session", { worker })
-    .then(response => handleResponseJSON(response))
-    .then(data => data);
+    .then((response) => handleResponseJSON(response))
+    .then((data) => data);
 
-export const signUpCompany = company =>
+export const signUpCompany = (company) =>
   makePostRequest("/api/companies", { company })
-    .then(response => handleResponseJSON(response))
-    .then(data => data);
+    .then((response) => handleResponseJSON(response))
+    .then((data) => data);
 
-export const signInCompany = company =>
+export const signInCompany = (company) =>
   makePostRequest("/api/session", { company })
-    .then(response => handleResponseJSON(response))
-    .then(data => console.log(data));
+    .then((response) => handleResponseJSON(response))
+    .then((data) => data);
 
 export const signOut = () => deleteRequest("/api/session");

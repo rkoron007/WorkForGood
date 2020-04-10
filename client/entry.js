@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let assetName = window.worker ? "workers" : "companies";
     const preloadedState = {
       entities: {
-        [assetName]: { [asset.id]: asset }
+        [assetName]: { [asset.id]: asset },
       },
-      session: { id: asset.id }
+      session: { id: asset.id },
     };
 
     store = configureStore(preloadedState);

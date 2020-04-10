@@ -1,26 +1,26 @@
 class Api::CompaniesController < ApplicationController
-skip_before_action :verify_authenticity_token
+
   def create
-    @company = Company.new(company_params)
-    if @company.save
-      render json: @company
-      # render "api/companies/show"
+    @user = Company.new(company_params)
+    if @user.save
+      sign_in!(@user)
+      render "api/companies/show"
     else
-      render json: @company.errors.full_messages, status: 401
+      render json: @user.errors.full_messages, status: 401
     end
   end
 
   def show
-    @company = company.find(params[:id])
-    render json: @company
+    @user = Company.find(params[:id])
+    render 'api/companies/show'
   end
 
   def update
-    @company = company.find(params[:id])
-    if @company.update(company_params)
-      render json: @company
+    @user = Company.find(params[:id])
+    if @user.update(company_params)
+        render "api/companies/show"
     else
-      render json: @company.errors.full_messages, status: 401
+      render json: @user.errors.full_messages, status: 401
     end
   end
 

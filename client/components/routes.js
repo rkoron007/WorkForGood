@@ -1,19 +1,36 @@
 import React from "react";
-import { Switch, Route, Redirect } from "react-router-dom";
-import Greetings from "./worker/greeting/workerGreeting";
-import CompanyGreeting from "./worker/greeting/companyGreeting";
+import { Switch, Redirect } from "react-router-dom";
+import { AuthRoute, ProtectedRoute } from "../util/routeUtil";
+import Greeting from "./session/greeting";
 import WorkerSignInContainer from "./session/workerSignInContainer";
 import WorkerSignUpContainer from "./session/workerSignUpContainer";
-import CompanySignInContainer from "./session/companySignUpContainer";
+import CompanySignInContainer from "./session/CompanySignInContainer";
+import companySignUpContainer from "./session/companySignUpContainer";
 
 const Routes = () => {
   return (
     <div>
-      <Greetings />
-      <CompanyGreeting />
-      <Route exact path="/signin-worker" component={WorkerSignInContainer} />
-      <Route exact path="/signin-company" component={CompanySignInContainer} />
-      <Route exact path="/signup" component={WorkerSignUpContainer} />
+      <Greeting />
+      <AuthRoute
+        exact
+        path="/signin-worker"
+        component={WorkerSignInContainer}
+      />
+      <AuthRoute
+        exact
+        path="/signup-worker"
+        component={WorkerSignUpContainer}
+      />
+      <AuthRoute
+        exact
+        path="/signin-company"
+        component={CompanySignInContainer}
+      />
+      <AuthRoute
+        exact
+        path="/signup-company"
+        component={companySignUpContainer}
+      />
     </div>
   );
 };

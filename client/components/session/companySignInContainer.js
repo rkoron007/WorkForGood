@@ -1,14 +1,15 @@
 import { connect } from "react-redux";
 
 import SignInForm from "./signInForm";
-import { signInWorker } from "../../actions/sessionActions";
+import { signInCompany } from "../../actions/sessionActions";
 
 const mapStateToProps = ({ errors: { session } }) => ({
-  formType: "Sign In Worker",
+  formType: "Sign In Company",
   errors: session,
 });
+
 const mapDispatchToProps = (dispatch) => ({
-  processForm: (user) => dispatch(signInWorker(user)),
+  processForm: (company) => dispatch(signInCompany(company)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignInForm);

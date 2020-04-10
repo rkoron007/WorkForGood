@@ -1,24 +1,24 @@
 import React, { Component } from "react";
 
-export default class sessionForm extends Component {
+export default class signInForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
-      password: ""
+      password: "",
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   updateInput(input) {
-    return event => {
+    return (event) => {
       return this.setState({ [input]: event.target.value });
     };
   }
 
   renderErrors() {
-    if (this.props.errors) {
+    if (this.props.errors.length) {
       return (
         <ul className="session-errors">
           {this.props.errors.map((error, i) => (
@@ -32,7 +32,7 @@ export default class sessionForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     let user = Object.assign({}, this.state);
-    this.props.processForm(user).then(user => console.log(user));
+    this.props.processForm(user).then((user) => console.log(user));
   }
 
   render() {
@@ -58,6 +58,7 @@ export default class sessionForm extends Component {
           </label>
           <button>{formType}</button>
         </form>
+        <div>{this.renderErrors()}</div>
       </div>
     );
   }

@@ -1,5 +1,4 @@
 class Api::WorkersController < ApplicationController
-  skip_before_action :verify_authenticity_token
   def create
     @user = Worker.new(worker_params)
     if @user.save
@@ -18,7 +17,7 @@ class Api::WorkersController < ApplicationController
   def update
     @user = Worker.find(params[:id])
     if @user.update(worker_params)
-        render "api/items/show"
+        render "api/workers/show"
     else
       render json: @user.errors.full_messages, status: 401
     end
@@ -26,7 +25,7 @@ class Api::WorkersController < ApplicationController
 
   def index
     @workers = Worker.all
-          render json: @workers
+    render json: @workers
   end
 
   private
