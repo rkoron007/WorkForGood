@@ -1,16 +1,16 @@
 import React from "react";
 import { Switch, Redirect } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/routeUtil";
-import Greeting from "./session/greeting";
-import WorkerSignInContainer from "./session/workerSignInContainer";
-import WorkerSignUpContainer from "./session/workerSignUpContainer";
-import CompanySignInContainer from "./session/companySignInContainer";
-import companySignUpContainer from "./session/companySignUpContainer";
+import Header from "./header/header";
+import WorkerSignInContainer from "./session/containers/workerSignInContainer";
+import WorkerSignUpContainer from "./session/containers/workerSignUpContainer";
+import CompanySignInContainer from "./session/containers/companySignInContainer";
+import companySignUpContainer from "./session/containers/companySignUpContainer";
 
 const Routes = () => {
   return (
     <div>
-      <Greeting />
+      <Header />
       <AuthRoute
         exact
         path="/signin-worker"

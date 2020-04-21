@@ -16,14 +16,14 @@ export const Greeting = () => {
 
   if (user) {
     return (
-      <div>
-        <h1>Hello {user.email}</h1>
+      <div className="greeting">
+        <h1>Hello {user.name}</h1>
         <button onClick={() => dispatch(signOut())}>Sign Out</button>
       </div>
     );
   } else {
     return (
-      <div>
+      <div className="greeting">
         <div className="company-auth-links">
           <h2>For Companies</h2>
           <Link to="/signin-company">Sign In</Link>

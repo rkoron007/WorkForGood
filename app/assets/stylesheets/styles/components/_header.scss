@@ -1,0 +1,11 @@
+.greeting {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.logo {
+  background-image: image-url("logo.png");
+  height: 100px;
+  width: 100px;
+}
